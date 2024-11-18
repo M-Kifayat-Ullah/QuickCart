@@ -1,0 +1,24 @@
+﻿@model List<Admin>
+<div class="container-fluid px-4">
+    <h2 class="mt-4 text-center text-uppercase" style="letter-spacing:4px">My Dashboard</h2>
+</div>
+<div class="row">
+    <div class="col-md-2" ></div>
+    <div class="col-md-8">
+<form class="post">
+    <!--[0] represent particular row that is fetched from table--->
+    <input type="hidden" name="Admin_id" value="@Model[0].Admin_id" />
+    <input type="text" placeholder="Enter Your Name" name="Admin_name" class="form-control my-3" value="@Model[0].Admin_name">
+    <input type="email" placeholder="Enter Your Email" name="Admin_email" class="form-control my-3" value="@Model[0].Admin_Email" />
+    <input type="password" placeholder="Enter Your password" name="Admin_password" class="form-control my-3" value="@Model[0].Admin_password" />
+    <input type="submit" value="Update Profile"  class="form-control my-3 btn btn-primary" />
+            <input type="hidden" name="Admin_image" value="@Model[0].Admin_image" />
+</form>
+</<form method="post" asp-action="changeprofileimage" enctype="multipart/form-data">
+    <input type="file" name="admin_image" class="form-control my-3" />
+    <img src="@("~/admin_image/"+Model[0].Admin_image)" asp-append-version="true" />
+    <input type="submit" name="name" value="Change Profile" />
+</form>
+    </div>
+    <div class="col-md-2"></div>
+</div>
